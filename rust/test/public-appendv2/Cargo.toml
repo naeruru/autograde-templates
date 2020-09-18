@@ -1,0 +1,13 @@
+[package]
+name = "public-append"
+version = "0.1.0"
+authors = ["you <you@you.you>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+my_project_name = { path = "../../" }
+
+serde = "1.0"
+serde-pickle = "0.6"

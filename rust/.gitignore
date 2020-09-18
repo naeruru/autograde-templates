@@ -1,0 +1,10 @@
+target/
+__pycache__/
+.idea/
+
+*.DS_Store
+*.out
+*.log
+*.aux
+*#*
+*~
