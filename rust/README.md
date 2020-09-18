@@ -33,13 +33,13 @@ There are several tests bundled with this example.
 ### public-charremove
 
 - Tests: remove_characters()
-- Method: Compares `ouput` file within driver.py (no `answer` file).
+- Method: Compares `output` file within driver.py (no `answer` file).
 - Additional info: N/A
 
 ## Additional files
 
 ### Makefile
-- make clean: Cleans the project folder of build directories (__pychache, target/ dirs, etc).
+- make clean: Cleans the project folder of build directories (__pycache, target/ dirs, etc).
 - make archive: Creates an archive than can be submitted on autograde by a student.
 
 ### .gitignore

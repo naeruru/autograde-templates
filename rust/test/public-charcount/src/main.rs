@@ -10,5 +10,5 @@ fn main() {
     let result: usize = warmup_functions::count_characters(&test_str, key);
 
     // dump result to file
-    fs::write("result", result.to_string()).expect("Unable to create result file");
+    fs::write("output", result.to_string()).expect("Unable to create result file");
 }

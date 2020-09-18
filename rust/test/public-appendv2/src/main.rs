@@ -19,5 +19,5 @@ fn main() {
     //fs::write("answer", answer_serl).expect("Unable to create answer file");
 
     // dump result to serialized file
-    fs::write("result", serialized).expect("Unable to create result file");
+    fs::write("output", serialized).expect("Unable to create result file");
 }

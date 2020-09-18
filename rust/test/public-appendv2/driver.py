@@ -36,15 +36,15 @@ except:
 	pass
 
 try:
-	with open('answer', 'rb') as file1, open('result', 'rb') as file2:
+	with open('answer', 'rb') as file1, open('output', 'rb') as file2:
 		answer = pickle.load(file1)
-		result = pickle.load(file2)
+		output = pickle.load(file2)
 		file1.close()
 		file2.close()
 
-		os.remove('result')
+		os.remove('output')
 
-		assertequals(answer, result, f'{stdout}\n{stderr}')
+		assertequals(answer, output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')

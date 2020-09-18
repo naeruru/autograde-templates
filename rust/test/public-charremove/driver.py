@@ -37,15 +37,15 @@ except:
 
 
 try:
-	with open('result', 'r') as file1:
-		result = file1.read()
+	with open('output', 'r') as file1:
+		output = file1.read()
 		file1.close()
 		
 		# delete result file
-		os.remove('result')
+		os.remove('output')
 
 		# No answer file example
-		assertequals("heo word!", result, f'{stdout}\n{stderr}')
+		assertequals("heo word!", output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')

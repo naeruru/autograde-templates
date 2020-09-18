@@ -11,7 +11,7 @@ fn main() {
     println!("ADD: {} + {} = {}", a, b, result);
 
     // create result file
-    fs::write("result", result.to_string()).expect("Unable to create result file");
+    fs::write("output", result.to_string()).expect("Unable to create result file");
 
 
     // using assert_eq!() is also possible in combination with a driver.py.

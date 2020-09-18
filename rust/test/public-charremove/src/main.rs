@@ -9,5 +9,5 @@ fn main() {
     let result = warmup_functions::remove_characters(&test_str, key);
 
     // dump result to file
-    fs::write("result", &result).expect("Unable to create result file");
+    fs::write("output", &result).expect("Unable to create result file");
 }

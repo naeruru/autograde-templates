@@ -36,15 +36,15 @@ except:
 
 
 try:
-	with open('answer', 'r') as file1, open('result', 'r') as file2:
+	with open('answer', 'r') as file1, open('output', 'r') as file2:
 		answer = file1.read()
-		result = file2.read()
+		output = file2.read()
 		file1.close()
 		file2.close()
 
-		os.remove('result')
+		os.remove('output')
 
-		assertequals(answer, result, f'{stdout}\n{stderr}')
+		assertequals(answer, output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')

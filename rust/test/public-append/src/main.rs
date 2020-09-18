@@ -15,7 +15,7 @@ fn main() {
     let result_str = format!("{:?}", result);
 
     // dump result to file
-    fs::write("result", result_str).expect("Unable to create result file");
+    fs::write("output", result_str).expect("Unable to create result file");
 
     // create answer file (generate this ahead of time!)
     //fs::write("answer", "[1, 2, 3, 4, 5, 6]").expect("Unable to create result file");
