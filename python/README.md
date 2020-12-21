@@ -24,8 +24,8 @@ There are several tests bundled with this example.
 - make clean: Cleans the project folder of build directories (__pycache, tar files, etc).
 - make archive: Creates an archive than can be submitted on autograde by a student.
 
-## Additional notes
-The driver.py will usually be the exact same for all tests if you follow the answer/output method. The one part that might change between tests is what you need to use `preparefile()` on. If you include more files (for example, you want test.py to access a text file), you would need to prepare those.
-
 ### .gitignore
 Useful so that students don't commit unnecessary files.
+
+## Additional notes
+The driver.py will usually be the exact same for all tests if you follow the answer/output method. The one part that might change between tests is what you need to use `preparefile()` on. If you include more files (for example, you want test.py to access a text file), you would need to prepare those.
