@@ -13,6 +13,7 @@
 import os, sys, subprocess, json, argparse, signal
 from subprocess import Popen, PIPE, STDOUT, TimeoutExpired
 
+TIMEOUT = 15
 
 #####################
 # Start Test Utilities
@@ -27,12 +28,15 @@ def runcmdsafe(binfile):
 	return b_stdout, b_stderr, b_exitcode
 
 def runcmd(cmd):
-	stdout, stderr, process = None, None, None
+	#executed = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
+	#stdout, stderr = executed.communicate()
+	#return stdout, stderr, executed.returncode
+	stdout, stderr = None, None
 	if os.name != 'nt':
 		cmd = "exec " + cmd
-	with Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT) as process:
+	with Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True) as process:
 		try:
-			stdout, stderr = process.communicate(timeout=15)
+			stdout, stderr = process.communicate(timeout=TIMEOUT)
 		except TimeoutExpired:
 			if os.name == 'nt':
 				Popen("TASKKILL /F /PID {pid} /T".format(pid=process.pid))
@@ -42,11 +46,13 @@ def runcmd(cmd):
 	return stdout, stderr, process.returncode
 	
 
-def assertequals(expected, actual):
+def assertequals(expected, actual, info=''):
 	if expected == actual:
 		passtest('')
 	else:
-		failtest(f'Expected {expected} got {actual}')
+		if (info): 
+			info = f'\n{info}'
+			failtest(f'Expected {expected}, but got {actual}.{info}')
 
 def failtest(message):
 	testmsg('failed', message)
@@ -109,7 +115,7 @@ def runtests():
 	print('===========================')
 		
 def listtests():
-	tests = [test for test in os.listdir("test/")]
+	tests = [test for test in os.listdir("test/") if not test.startswith(".")]
 	tests.sort()
 	return tests
 

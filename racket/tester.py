@@ -50,8 +50,9 @@ def assertequals(expected, actual, info=''):
 	if expected == actual:
 		passtest('')
 	else:
-		if (info): info = f'\n{info}'
-		failtest(f'Expected {expected}, but got {actual}.{info}')
+		if (info): 
+			info = f'\n{info}'
+			failtest(f'Expected {expected}, but got {actual}.{info}')
 
 def failtest(message):
 	testmsg('failed', message)
