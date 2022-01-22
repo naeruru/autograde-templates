@@ -32,21 +32,19 @@ except:
 # Comparison with answer and output here
 try:
 	with open('answer', 'r') as file1, open('output', 'r') as file2:
-		answer = str(file1.read())
-		output = str(file2.read())
-		file1.close()
-		file2.close()
+		answer = file1.read().strip()
+		output = file2.read().strip()
 
-		# Delete output 
-		os.remove('output')
+	# Delete output 
+	os.remove('output')
 
-		# Built in tester.py function assertequals(expected, actual, info='')
-		# If True, passes. If false, fails and gives expected != actual and and specified info.
-		# parameters: 
-		# - expected(required): the answer that was expected
-		# - actual(required): the output from the user's code
-		# - info(optional): any additional info you want printed if it fails
-		assertequals(answer, output, stdout+"\n"+stderr)
+	# Built in tester.py function assertequals(expected, actual, info='')
+	# If True, passes. If false, fails and gives expected != actual and and specified info.
+	# parameters: 
+	# - expected(required): the answer that was expected
+	# - actual(required): the output from the user's code
+	# - info(optional): any additional info you want printed if it fails
+	assertequals(answer, output, stdout+"\n"+stderr)
 
 except FileNotFoundError:
 	failtest(stdout+"\n"+stderr)

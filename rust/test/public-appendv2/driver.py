@@ -39,12 +39,10 @@ try:
 	with open('answer', 'rb') as file1, open('output', 'rb') as file2:
 		answer = pickle.load(file1)
 		output = pickle.load(file2)
-		file1.close()
-		file2.close()
 
-		os.remove('output')
+	os.remove('output')
 
-		assertequals(answer, output, f'{stdout}\n{stderr}')
+	assertequals(answer, output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')

@@ -37,17 +37,16 @@ except:
 try:
 	with open('output', 'r') as file1:
 		output = file1.read()
-		file1.close()
 
-		os.remove('output')
+	os.remove('output')
 
-		# Compare without an answer file.
-		# In some situations, the answer may be an approximate value,
-		# so this way would be preferred.
-		if 2 < int(output) < 4:
-			passtest('')
-		else:
-			failtest(f'Expected a value between 2 and 4, but got {result}.\n{stdout}\n{stderr}')
+	# Compare without an answer file.
+	# In some situations, the answer may be an approximate value,
+	# so this way would be preferred.
+	if 2 < int(output) < 4:
+		passtest('')
+	else:
+		failtest(f'Expected a value between 2 and 4, but got {result}.\n{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(stdout+"\n\n"+stderr)

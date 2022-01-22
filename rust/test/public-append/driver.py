@@ -37,12 +37,10 @@ try:
 	with open('answer', 'r') as file1, open('output', 'r') as file2:
 		answer = file1.read()
 		output = file2.read()
-		file1.close()
-		file2.close()
 
-		os.remove('output')
+	os.remove('output')
 
-		assertequals(answer, output, f'{stdout}\n{stderr}')
+	assertequals(answer, output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')

@@ -13,8 +13,6 @@ from tester import failtest, passtest, assertequals, runcmd, preparefile, runcmd
 ###################################
 # Write your testing script below #
 ###################################
-python_bin = sys.executable
-import pickle
 
 # prepare necessary files
 preparefile('./Cargo.toml')
@@ -39,13 +37,12 @@ except:
 try:
 	with open('output', 'r') as file1:
 		output = file1.read()
-		file1.close()
 		
-		# delete result file
-		os.remove('output')
+	# delete result file
+	os.remove('output')
 
-		# No answer file example
-		assertequals("heo word!", output, f'{stdout}\n{stderr}')
+	# No answer file example
+	assertequals("heo word!", output, f'{stdout}\n{stderr}')
 
 except FileNotFoundError:
 	failtest(f'{stdout}\n{stderr}')
