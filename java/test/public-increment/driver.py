@@ -19,8 +19,9 @@ import shutil
 preparefile('./test.java')
 
 # run test
-runcmdsafe('javac -d ./ test.java ../../Counter.java')
-b_stdout, b_stderr, b_exitcode = runcmdsafe('java p0.Test')
+b_stdout, b_stderr, b_exitcode = runcmdsafe('javac -d ./ test.java ../../Counter.java')
+if b_exitcode == 0:
+	b_stdout, b_stderr, b_exitcode = runcmdsafe('java p0.Test')
 
 
 # Convert stdout bytes to utf-8
